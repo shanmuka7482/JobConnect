@@ -1,0 +1,112 @@
+[
+      {
+        "id": 1,
+        "company": "TechCo",
+        "job_title": "Software Engineer",
+        "location": "San Francisco",
+        "salary": "$100,000 - $120,000",
+        "description": "TechCo is seeking a talented software engineer to join our innovative team",
+        "requirements": ["Bachelor's degree in Computer Science or related field", "Proficiency in Python, JavaScript"],
+        "posted_date": "2024-04-01",
+        "expiry_date": "2024-05-01"
+      },
+      {
+        "id": 2,
+        "company": "FinanceCorp",
+        "job_title": "Financial Analyst",
+        "location": "New York",
+        "salary": "$80,000 - $90,000",
+        "description": "FinanceCorp is looking for a detail-oriented financial analyst to analyze financial data",
+        "requirements": ["Bachelor's degree in Finance, Economics, or related field", "Experience with financial modeling"],
+        "posted_date": "2024-03-25",
+        "expiry_date": "2024-04-25"
+      },
+      {
+        "id": 3,
+        "company": "Marketing Solutions Inc.",
+        "job_title": "Marketing Manager",
+        "location": "Chicago",
+        "salary": "$90,000 - $110,000",
+        "description": "Marketing Solutions Inc. is hiring a creative marketing manager to lead our marketing campaigns",
+        "requirements": ["Bachelor's degree in Marketing, Communications, or related field", "Proven experience in digital marketing"],
+        "posted_date": "2024-04-02",
+        "expiry_date": "2024-05-02"
+      },
+      {
+        "id": 4,
+        "company": "HealthTech Innovations",
+        "job_title": "Data Scientist",
+        "location": "Boston",
+        "salary": "$120,000 - $140,000",
+        "description": "HealthTech Innovations is seeking a skilled data scientist to analyze healthcare data",
+        "requirements": ["Master's degree in Data Science, Statistics, or related field", "Experience with machine learning algorithms"],
+        "posted_date": "2024-03-28",
+        "expiry_date": "2024-04-28"
+      },
+      {
+        "id": 5,
+        "company": "DesignWorks",
+        "job_title": "UI/UX Designer",
+        "location": "Los Angeles",
+        "salary": "$85,000 - $100,000",
+        "description": "DesignWorks is looking for a creative UI/UX designer to enhance user experience",
+        "requirements": ["Bachelor's degree in Design, HCI, or related field", "Proficiency in design tools like Sketch, Figma"],
+        "posted_date": "2024-04-03",
+        "expiry_date": "2024-05-03"
+      },
+      {
+        "id": 6,
+        "company": "GreenEnergy Solutions",
+        "job_title": "Renewable Energy Engineer",
+        "location": "Seattle",
+        "salary": "$90,000 - $110,000",
+        "description": "GreenEnergy Solutions seeks an engineer passionate about renewable energy technologies",
+        "requirements": ["Bachelor's degree in Engineering (Mechanical, Electrical, or related)", "Experience in renewable energy projects"],
+        "posted_date": "2024-03-30",
+        "expiry_date": "2024-04-30"
+      },
+      {
+        "id": 7,
+        "company": "EduTech Co",
+        "job_title": "Education Consultant",
+        "location": "Remote",
+        "salary": "$70,000 - $80,000",
+        "description": "EduTech Co is hiring an education consultant to develop innovative educational programs",
+        "requirements": ["Master's degree in Education or related field", "Experience in curriculum development"],
+        "posted_date": "2024-04-04",
+        "expiry_date": "2024-05-04"
+      },
+      {
+        "id": 8,
+        "company": "FashionHouse",
+        "job_title": "Fashion Designer",
+        "location": "Miami",
+        "salary": "$75,000 - $90,000",
+        "description": "FashionHouse is seeking a talented fashion designer to create unique clothing designs",
+        "requirements": ["Bachelor's degree in Fashion Design or related field", "Strong portfolio showcasing design skills"],
+        "posted_date": "2024-04-05",
+        "expiry_date": "2024-05-05"
+      },
+      {
+        "id": 9,
+        "company": "MediaWorks",
+        "job_title": "Digital Marketing Specialist",
+        "location": "Remote",
+        "salary": "$60,000 - $70,000",
+        "description": "MediaWorks is hiring a digital marketing specialist to manage online marketing campaigns",
+        "requirements": ["Bachelor's degree in Marketing, Communications, or related field", "Experience in SEO, SEM, and social media marketing"],
+        "posted_date": "2024-04-06",
+        "expiry_date": "2024-05-06"
+      },
+      {
+        "id": 10,
+        "company": "Healthcare Solutions Ltd.",
+        "job_title": "Healthcare Administrator",
+        "location": "Dallas",
+        "salary": "$80,000 - $95,000",
+        "description": "Healthcare Solutions Ltd. is seeking a healthcare administrator to oversee daily operations",
+        "requirements": ["Bachelor's degree in Healthcare Administration or related field", "Experience in healthcare management"],
+        "posted_date": "2024-04-07",
+        "expiry_date": "2024-05-07"
+      }
+    ]  
