@@ -11,7 +11,7 @@ function Navbar() {
   const NavItems = [
     { path: "/", title: "Home" },
     { path: "/FindJobs", title: "Find Jobs" },
-    { path: "/SalaryTools", title: "Salary Tools" },
+    { path: "/EditJobs", title: "Edit Jobs" },
     { path: "/PostJobs", title: "Post Job" },
   ];
   return (

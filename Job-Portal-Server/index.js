@@ -43,7 +43,7 @@ async function run() {
       } else {
         return res.status(404).send({
           message: "can not insert! try again",
-          status:false
+          status: false,
         });
       }
     });
@@ -52,6 +52,15 @@ async function run() {
     app.get("/all-jobs", async (req, res) => {
       const jobs = await jobCollection.find().toArray();
       res.send(jobs);
+    });
+
+    //get jobs by email
+    app.get("/myjobs/:email", async (req, res) => {
+      console.log(req.params.email);
+      const job = await jobCollection
+        .find({ Posted_By: req.params.email })
+        .toArray();
+      res.send(job);
     });
 
     // Send a ping to confirm a successful connection

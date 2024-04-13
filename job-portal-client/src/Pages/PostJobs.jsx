@@ -5,6 +5,7 @@ const PostJobs = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -18,6 +19,11 @@ const PostJobs = () => {
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
+        if(result.acknowledged===true)
+        {
+          alert("Job Posted Sucessfully 🎉🎊");
+        }
+        reset()
       });
   };
   return (
