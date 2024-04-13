@@ -11,24 +11,23 @@ const PostJobs = () => {
 
   const onSubmit = (data) => {
     // console.log(data);
-    fetch("http://localhost:3000/post-job",{
-      method:"POST",
-      headers:{"content-type" : "application/json"},
-      body:JSON.stringify(data)
+    fetch("http://localhost:3000/post-job", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(data),
     })
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
-        if(result.acknowledged===true)
-        {
+        if (result.acknowledged === true) {
           alert("Job Posted Sucessfully 🎉🎊");
         }
-        reset()
+        reset();
       });
   };
   return (
     <div className="mx-w-screen-2xl container mx-auto xl:px-24 px-4 mt-10 ">
-      <div className="bg-light1/35 py-10 px-4 lg:px-16 rounded-lg">
+      <div className="home_login_box py-10 px-4 lg:px-16 rounded-lg">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
           {/* first row */}
           <div className="flex  flex-col lg:flex-row item-center jus gap-8">

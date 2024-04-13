@@ -58,7 +58,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="mt-20 lg:ml-20 lg:w-1/3 rounded-3xl bg-black/5 items-center shrink p-8 content-center shadow-transparent">
+      <div className="mt-20 lg:ml-20 lg:w-1/3 rounded-3xl items-center shrink p-8 content-center shadow-transparent home_login_box">
         <h2 className="font-medium text-xl mb-3">Search for Job</h2>
         <p>Search Million of jobs. Do meaningful work that impact the world</p>
         <div className="flex md:rounded-s-md rounded w-full mt-4">
@@ -67,7 +67,6 @@ const Home = () => {
             name="title"
             id="title"
             placeholder="Job Title?"
-
             className="block flex-1 border-0 focus:outline-none bg-transparent py-1.5 pl-8 text-primary placeholder:text-primary focus:right-0 sm:text-smsm:leading-6"
           />
           <IoIosSearch className="absolute mt-2.5 ml-2 text-gray-400" />
@@ -79,7 +78,6 @@ const Home = () => {
             name="Location"
             id="Location"
             placeholder="Location"
-
             className="block flex-1 border-0 focus:outline-none bg-transparent py-1.5 pl-8 text-primary placeholder:text-primary focus:right-0 sm:text-smsm:leading-6"
           />
           <BsGlobe2 className="absolute mt-2.5 ml-2 text-gray-400" />

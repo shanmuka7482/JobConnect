@@ -27,16 +27,17 @@ function Findjobs() {
   const HadleInputChange = (event) => {
     SetQuery(event.target.value);
   };
-//Loaction
-const HadleLocationChange = (event) => {
-  SetQueryLocation(event.target.value);
-};
+  //Loaction
+  const HadleLocationChange = (event) => {
+    SetQueryLocation(event.target.value);
+  };
   //filter
   const FilteredItems = jobs.filter(
     (job) => job.job_title.toLowerCase().indexOf(Query.toLowerCase()) !== -1
   );
   const FilteredLocationItems = jobs.filter(
-    (job) => job.location.toLowerCase().indexOf(QueryLocation.toLowerCase()) !== -1
+    (job) =>
+      job.location.toLowerCase().indexOf(QueryLocation.toLowerCase()) !== -1
   );
   //radio
   const handlechange = (event) => {
@@ -61,14 +62,14 @@ const HadleLocationChange = (event) => {
     }
   };
 
-  const FilteredData = (jobs, selected, Query,QueryLocation) => {
+  const FilteredData = (jobs, selected, Query, QueryLocation) => {
     let Filteredjobs = jobs;
     //filtering input items
     if (Query) {
       Filteredjobs = FilteredItems;
     }
-    if(QueryLocation){
-      Filteredjobs=FilteredLocationItems;
+    if (QueryLocation) {
+      Filteredjobs = FilteredLocationItems;
     }
     //category
     if (selected) {
@@ -87,16 +88,21 @@ const HadleLocationChange = (event) => {
     return Filteredjobs.map((data, i) => <Card key={i} data={data} />);
   };
 
-  const result = FilteredData(jobs, SelectCategoey, Query,QueryLocation);
+  const result = FilteredData(jobs, SelectCategoey, Query, QueryLocation);
 
   return (
     <div>
-      <Banner Query={Query} HadleInputChange={HadleInputChange} HadleLocationChange={HadleLocationChange} QueryLocation={QueryLocation}/>
+      <Banner
+        Query={Query}
+        HadleInputChange={HadleInputChange}
+        HadleLocationChange={HadleLocationChange}
+        QueryLocation={QueryLocation}
+      />
       {/* main content */}
-      <div className="bg-light1/35 md:grid grid-cols-4 gap-3 lg:px-24 px-4 py-12">
+      <div className="home_login_box md:grid grid-cols-4 gap-3 lg:px-24 px-4 py-12 rounded-5xl">
         {/* left side */}
         <div className="bg-white p-4 rounded">
-          <Sidebar handlechange={handlechange}  />
+          <Sidebar handlechange={handlechange} />
         </div>
         {/* jobs cards */}
         <div className="col-span-2 bg-white p-4 rounded">
@@ -116,7 +122,13 @@ const HadleLocationChange = (event) => {
           {/* Pagination */}
           {result.length > 0 ? (
             <div className="flex justify-center mt-4 space-x-8">
-              <button onClick={PrevPage} disabled={CurrentPage=== 1}  className="hover:underline">Previous</button>
+              <button
+                onClick={PrevPage}
+                disabled={CurrentPage === 1}
+                className="hover:underline"
+              >
+                Previous
+              </button>
               <span className="mx-2">
                 Page {CurrentPage} of{" "}
                 {Math.ceil(FilteredItems.length / ItemPerPage)}
@@ -136,7 +148,9 @@ const HadleLocationChange = (event) => {
           )}
         </div>
         {/* right side */}
-        <div className="bg-white p-4 rounded"><NewsLater/></div>
+        <div className="bg-white p-4 rounded">
+          <NewsLater />
+        </div>
       </div>
     </div>
   );
