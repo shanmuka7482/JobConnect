@@ -2,18 +2,40 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const EditJobs = () => {
-  const email = "shanmuka";
   const [jobs, setjobs] = useState([]);
   const [searchtext, setsearchjobs] = useState("");
   const [loading, setloading] = useState(true);
+
+  //set current page
+  const [currentPage, setcurrentPage] = useState(1);
+  const itemsPerPage = 4;
+
   useEffect(() => {
     setloading(true);
-    fetch("http://localhost:3000/myjobs/siva@gmail.com")
+    fetch("http://localhost:3000/myjobs/shan@gmail.com")
       .then((res) => res.json())
       .then((data) => {
         setjobs(data);
+        setloading(false);
       });
-  }, []);
+  }, [searchtext]);
+
+  //pagination
+  const indexoflastitem = currentPage * itemsPerPage;
+  const indexoffirstitem = indexoflastitem - itemsPerPage;
+  const currentJobs = jobs.slice(indexoffirstitem, indexoflastitem);
+
+  const nextPage = () => {
+    if (indexoflastitem < jobs.length) {
+      setcurrentPage(currentPage + 1);
+    }
+  };
+  const prevPage = () => {
+    if (currentPage > 1) {
+      setcurrentPage(currentPage - 1);
+    }
+  };
+
   const handleCllick = () => {
     const filter = jobs.filter(
       (job) =>
@@ -24,6 +46,15 @@ const EditJobs = () => {
     setloading(false);
   };
   const handleDelete = (id) => {
+    fetch(`http://localhost:3000/job/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged === true) {
+          alert("Job deleted Sucessfully !!");
+        }
+      });
     console.log(id);
   };
   return (
@@ -81,37 +112,58 @@ const EditJobs = () => {
                   </th>
                 </tr>
               </thead>
-              <tbody>
-                {jobs.map((job, index) => (
-                  <tr
-                    className="bg-white border-b text-black dark:bg-light1 dark:border-primary"
-                    key={index}
-                  >
-                    <td className="py-4 px-6">{job.job_title}</td>
-                    <td className="py-4 px-6">{job.company}</td>
-                    <td className="py-4 px-6">{job.salary}</td>
-                    <td className="py-4 px-6">
-                      {" "}
-                      <button>
-                        <Link to={`/edit-job/${job?._id}`}> Edit</Link>
-                      </button>
-                    </td>
-                    <td className="py-4 px-6">
-                      {" "}
-                      <button
-                        className="bg-red-700 py-2 px-6 text-white rounded-full"
-                        onClick={() => {
-                          handleDelete(job._id);
-                        }}
-                      >
-                        Delete
-                      </button>{" "}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
+
+              {loading ? (
+                <div>
+                  <p className="flex items-center justify-center h-20">
+                    Loading....
+                  </p>
+                </div>
+              ) : (
+                <tbody>
+                  {jobs.map((job, index) => (
+                    <tr
+                      className="bg-white border-b text-black dark:bg-light1 dark:border-primary"
+                      key={index}
+                    >
+                      <td className="py-4 px-6">{job.job_title}</td>
+                      <td className="py-4 px-6">{job.company}</td>
+                      <td className="py-4 px-6">{job.salary}</td>
+                      <td className="py-4 px-6">
+                        {" "}
+                        <button>
+                          <Link to={`/edit-job/${job?._id}`}> Edit</Link>
+                        </button>
+                      </td>
+                      <td className="py-4 px-6">
+                        {" "}
+                        <button
+                          className="bg-red-700 py-2 px-6 text-white rounded-full"
+                          onClick={() => {
+                            handleDelete(job._id);
+                          }}
+                        >
+                          Delete
+                        </button>{" "}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              )}
             </table>
           </div>
+        </div>
+        <div className="flex justify-center text-black space-x-8 ">
+          {currentPage > 1 && (
+            <button className="hover:underline pt-3" onClick={prevPage}>
+              Previous
+            </button>
+          )}
+          {indexoflastitem < jobs.length && (
+            <button className="hover:underline pt-3" onClick={nextPage}>
+              Next
+            </button>
+          )}
         </div>
       </div>
     </div>

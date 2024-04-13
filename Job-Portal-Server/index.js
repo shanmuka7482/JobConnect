@@ -11,7 +11,7 @@ app.use(cors());
 
 //User:shanmuuka7482
 //password: uiySw8Mg4P5n3fiT
-const { MongoClient, ServerApiVersion } = require("mongodb");
+const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const uri = `mongodb+srv://${username1}:${password}@jobconnect.hm58qoq.mongodb.net/?retryWrites=true&w=majority&appName=JobConnect`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -61,6 +61,14 @@ async function run() {
         .find({ Posted_By: req.params.email })
         .toArray();
       res.send(job);
+    });
+
+    //delete a job
+    app.delete("/job/:id", async (req, res) => {
+      const id = req.params.id;
+      const filter = { _id: new ObjectId(id) };
+      const results = await jobCollection.deleteOne(filter);
+      res.send(results);
     });
 
     // Send a ping to confirm a successful connection
