@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { IoIosSearch } from "react-icons/io";
 import { BsGlobe2 } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import bg from "../assets/bg.png";
+import arrow from "../assets/left-arrow.png";
 
 const Home = () => {
   const [jobs, setJobs] = useState([]);
@@ -10,7 +12,7 @@ const Home = () => {
     // Define an async function to fetch data
     const fetchData = async () => {
       try {
-        const response = await fetch("jobs.json");
+        const response = await fetch("http://localhost:3000/all-jobs");
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
@@ -37,7 +39,16 @@ const Home = () => {
   const numberOfUniqueCompanies = uniqueCompanyNames.size;
 
   return (
-    <div className="text-primary flex gap-2 max-w-screen-2xl container mx-auto xl:px-24 px-4 md:pt-20 pt-14 flex-wrap">
+    <div
+      className="text-primary flex gap-2 max-w-screen-2xl container mx-auto xl:px-24 px-4 md:pt-20 pt-14 flex-wrap "
+      style={{
+        backgroundImage: `URL(${bg})`,
+        height: "100vh",
+        width: "100vw",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+      }}
+    >
       <div className="mt-20 lg:ml-20 lg:w-5/12">
         <h1 className="font-normal text-5xl leading-relaxed">
           Find the Right fit. Remote-Friendly.
@@ -58,36 +69,49 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="mt-20 lg:ml-20 lg:w-1/3 rounded-3xl items-center shrink p-8 content-center shadow-transparent home_login_box">
-        <h2 className="font-medium text-xl mb-3">Search for Job</h2>
-        <p>Search Million of jobs. Do meaningful work that impact the world</p>
-        <div className="flex md:rounded-s-md rounded w-full mt-4">
-          <input
-            type="text"
-            name="title"
-            id="title"
-            placeholder="Job Title?"
-            className="block flex-1 border-0 focus:outline-none bg-transparent py-1.5 pl-8 text-primary placeholder:text-primary focus:right-0 sm:text-smsm:leading-6"
-          />
-          <IoIosSearch className="absolute mt-2.5 ml-2 text-gray-400" />
+      <div className="mt-20 lg:ml-20 lg:w-1/3 relative">
+        <div className="rounded-3xl items-center p-8 content-center shadow-transparent home_login_box relative">
+          {/* Arrow partially inside and outside the box */}
+          <div className="absolute top-0 right-3">
+            <img
+              src={arrow}
+              alt="arrow"
+              className=" transform translate-x-1/2 -translate-y-1/2 text-gray-400"
+              style={{height:"80px",width:"80px"}}
+            />
+          </div>
+          <h2 className="font-medium text-xl mb-3">Search for Job</h2>
+          <p>
+            Search millions of jobs. Do meaningful work that impacts the world.
+          </p>
+          <div className="flex md:rounded-s-md rounded w-full mt-4">
+            <input
+              type="text"
+              name="title"
+              id="title"
+              placeholder="Job Title?"
+              className="block flex-1 border-0 focus:outline-none bg-transparent py-1.5 pl-8 text-primary placeholder:text-primary focus:right-0 sm:text-smsm:leading-6"
+            />
+            <IoIosSearch className="absolute mt-2.5 ml-2 text-gray-400" />
+          </div>
+          <hr className="horizontal_ruler" />
+          <div className="flex md:rounded-s-md rounded w-full mt-4">
+            <input
+              type="text"
+              name="Location"
+              id="Location"
+              placeholder="Location"
+              className="block flex-1 border-0 focus:outline-none bg-transparent py-1.5 pl-8 text-primary placeholder:text-primary focus:right-0 sm:text-smsm:leading-6"
+            />
+            <BsGlobe2 className="absolute mt-2.5 ml-2 text-gray-400" />
+          </div>
+          <hr className="horizontal_ruler" />
+          <Link to="/FindJobs">
+            <button className="py-2 mt-6 w-full px-5 border rounded-full bg-primary text-light1">
+              For Employers
+            </button>
+          </Link>
         </div>
-        <hr className="horizontal_ruler" />
-        <div className="flex md:rounded-s-md rounded w-full mt-4">
-          <input
-            type="text"
-            name="Location"
-            id="Location"
-            placeholder="Location"
-            className="block flex-1 border-0 focus:outline-none bg-transparent py-1.5 pl-8 text-primary placeholder:text-primary focus:right-0 sm:text-smsm:leading-6"
-          />
-          <BsGlobe2 className="absolute mt-2.5 ml-2 text-gray-400" />
-        </div>
-        <hr className="horizontal_ruler" />
-        <Link to="/FindJobs">
-          <button className="py-2 mt-6 w-full px-5 border rounded-full bg-primary text-light1">
-            For Employers
-          </button>
-        </Link>
       </div>
     </div>
   );

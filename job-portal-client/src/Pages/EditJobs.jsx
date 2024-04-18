@@ -53,6 +53,7 @@ const EditJobs = () => {
       .then((data) => {
         if (data.acknowledged === true) {
           alert("Job deleted Sucessfully !!");
+          window.location = '/EditJobs';
         }
       });
     console.log(id);
@@ -86,7 +87,7 @@ const EditJobs = () => {
         <div className="items-end text-right">
           <Link to="/PostJobs">
             <button className="bg-primary shadow-sm ring-1 ring-inset text-light1 font-semibold px-8 py-2 rounded-full mb-4 ">
-              Post a Job
+              Post a New Job
             </button>
           </Link>
         </div>

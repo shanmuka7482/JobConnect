@@ -37,7 +37,7 @@ function Navbar() {
           ))}
         </ul>
         <div className="text-primary font-medium space-x-5 hidden lg:block content-center text-xl">
-          <Link to="/login" className="py-2 px-5 border rounded-full ">
+          <Link to="/Login" className="py-2 px-5 border rounded-full ">
             Sign in
           </Link>
           <Link
@@ -78,7 +78,7 @@ function Navbar() {
           ))}
           <li className="my-4 mb-6">
             <Link
-              to="/login"
+              to="/Login"
               className="py-2 mr-3 px-5 border rounded-full text-light2 "
             >
               Sign in
