@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-.home_login_box{background: rgba(255,255,255,0.15);
+/* .home_login_box{background: rgba(255,255,255,0.15);
     -webkit-backdrop-filter: blur(2px);
     backdrop-filter: blur(2px);
     border: 1px solid rgba(255,255,255,0.075);
-}
+} */

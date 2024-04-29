@@ -1,7 +1,5 @@
-import "./App.css";
 import { Outlet } from "react-router-dom";
-import Navbar from "./Components/Navbar";
-import bg from "./assets/bg.png";
+import DashSidebar from "../Components/DashSidebar";
 function App() {
   return (
     <div
@@ -13,7 +11,7 @@ function App() {
       //   backgroundSize: "cover",
       // }}
     >
-      <Navbar />
+      <DashSidebar />
       <Outlet />
     </div>
   );

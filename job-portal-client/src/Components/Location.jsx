@@ -18,26 +18,26 @@ function Location({ handlechange }) {
         </label>
         <InputField
           handlechange={handlechange}
-          value="Miami"
-          title="Miami"
+          value="Vijayawada"
+          title="Vijayawada"
           name="test"
         />
         <InputField
           handlechange={handlechange}
-          value="Seattle"
-          title="Seattle"
+          value="Delhi"
+          title="Delhi"
           name="test"
         />
         <InputField
           handlechange={handlechange}
-          value="Dallas"
-          title="Dallas"
+          value="Bangalore"
+          title="Bangalore"
           name="test"
         />
         <InputField
           handlechange={handlechange}
-          value="Dalla"
-          title="Dalla"
+          value="Hyderabad"
+          title="Hyderabad"
           name="test"
         />
       </div>

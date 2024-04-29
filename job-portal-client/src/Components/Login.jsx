@@ -1,7 +1,28 @@
 import React from "react";
 import logo from "../assets/Designer.png";
-
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import app from "../firebase/firebase.config";
 const Login = () => {
+  const Googleprovider = new GoogleAuthProvider();
+  const auth = getAuth();
+  const handleLogin = () => {
+    signInWithPopup(auth, Googleprovider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user.displayName);
+        alert("Hello " + user.displayName);
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
+      });
+  };
   return (
     <div>
       <>
@@ -77,7 +98,7 @@ const Login = () => {
             </h2>
             <button
               className="px-4 my-5 py-2  text-center mx-10 border flex gap-2 border-primary rounded-lg text-slate-700 hover:border-slate-400 hover:shadow transition duration-150"
-             
+              onClick={handleLogin}
             >
               <img
                 class="w-6 h-6"

@@ -11,8 +11,7 @@ function Navbar() {
   const NavItems = [
     { path: "/", title: "Home" },
     { path: "/FindJobs", title: "Find Jobs" },
-    { path: "/EditJobs", title: "Edit Jobs" },
-    { path: "/PostJobs", title: "Post Job" },
+    { path: "/Dashboard", title: "Dashboard" },
   ];
   return (
     <header className="max-w-screen-2xl container mx-auto xl:px-24 px-4">
@@ -37,15 +36,15 @@ function Navbar() {
           ))}
         </ul>
         <div className="text-primary font-medium space-x-5 hidden lg:block content-center text-xl">
-          <Link to="/Login" className="py-2 px-5 border rounded-full ">
+          <Link to="/Login" className="py-2 px-5 border rounded-full hover:bg-primary hover:text-light">
             Sign in
           </Link>
-          <Link
-            to="/ForEmployers"
+          {/* <Link
+            to="/Login"
             className="py-2 px-5 border rounded-full bg-primary text-light1"
           >
             For Employers
-          </Link>
+          </Link> */}
         </div>
 
         <div className="pt-7 pl-5 md:hidden block">

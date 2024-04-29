@@ -31,7 +31,7 @@ async function run() {
     //craete DB
     const DB = client.db("JobConnect");
     const jobCollection = DB.collection("demoJobs");
-
+    const UrlCollection = DB.collection("Resume");
     //post a job
     app.post("/post-job", async (req, res) => {
       const body = req.body;
@@ -46,6 +46,27 @@ async function run() {
           status: false,
         });
       }
+    });
+
+    //post the resume
+    app.post("/resume-upload", async (req, res) => {
+      const body = req.body;
+      body.createAt = new Date();
+      console.log(body);
+      const result = await UrlCollection.insertOne(body);
+      if (result.insertedId) {
+        return res.status(200).send(result);
+      } else {
+        return res.status(404).send({
+          message: "can not insert! try again",
+          status: false,
+        });
+      }
+    });
+    //get all jobs
+    app.get("/all-resume", async (req, res) => {
+      const jobs = await UrlCollection.find().toArray();
+      res.send(jobs);
     });
 
     //get all jobs
@@ -81,11 +102,11 @@ async function run() {
       const option = { upsert: true };
       const updateDoc = {
         $set: {
-          ...jobdata
+          ...jobdata,
         },
       };
-      const result=await jobCollection.updateOne(filter,updateDoc,option)
-      res.send(result)
+      const result = await jobCollection.updateOne(filter, updateDoc, option);
+      res.send(result);
     });
     //delete a job
     app.delete("/job/:id", async (req, res) => {

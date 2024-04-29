@@ -21,6 +21,40 @@ const JobDetails = () => {
     });
     if (url) {
       Swal.fire(`Entered URL: ${url}`);
+      console.log(url);
+      const resume = {
+        Name: "Siva",
+        Url: url,
+        Intrested_Job :job.job_title,
+      }; // Wrap the resume object in an array
+
+      fetch("http://localhost:3000/resume-upload", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(resume), // Send the resume object wrapped in an array
+      })
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return res.json();
+        })
+        .then((result) => {
+          console.log(result);
+          if (result.acknowledged  === true) {
+            // Assuming the backend sends status as true/false
+            alert("Resume sent successfully 🎉🎊");
+          } else {
+            alert("Resume upload failed");
+          }
+          reset(); // Assuming reset() is defined elsewhere
+        })
+        .catch((error) => {
+          console.error("There was a problem with the fetch operation:", error);
+          // Handle errors here, e.g., show an error message to the user
+        });
+    } else {
+      console.error("URL is not defined");
     }
   };
   return (
@@ -42,18 +76,18 @@ const JobDetails = () => {
       <p className="text-primary/70">{job.company}</p>
       <p className="pt-5">{job.description}</p>
       <div className="text-primary text-base flex flex-wrap gap-5 mb-2 mt-5 ">
-            <span className="flex items-center gap-2">
-                <IoLocationOutline/>{job.location}
-            </span>
-            
-            <span className="flex items-center gap-2">
-                {job.salary}
-            </span>
-            
-            <span className="flex items-center gap-2">
-                <IoCalendarOutline/>{job.posted_date}
-            </span>
-          </div>
+        <span className="flex items-center gap-2">
+          <IoLocationOutline />
+          {job.location}
+        </span>
+
+        <span className="flex items-center gap-2">{job.salary}</span>
+
+        <span className="flex items-center gap-2">
+          <IoCalendarOutline />
+          {job.posted_date}
+        </span>
+      </div>
       <button
         className="block mt-12 bg-primary text-light1 font-semibold px-8 py-2 rounded-full "
         onClick={handleApply}

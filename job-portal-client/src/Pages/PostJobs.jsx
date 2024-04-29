@@ -39,7 +39,7 @@ const PostJobs = () => {
                 type="text"
                 defaultValue={"Web Dev"}
                 {...register("job_title")}
-                className="block w-full flex-1 border-1 bg-white py-1.5 pl-3 text-primary placeholder:text-grey-400 focus:outline-none sm:text-sm sm:leading-6 rounded-full"
+                className="block w-full flex-1 border-2 border-light bg-white py-1.5 pl-3 text-primary placeholder:text-grey-400 focus:outline-none sm:text-sm sm:leading-6 rounded-full "
               />
             </div>
             <div className="lg:w-1/2 w-full ">
@@ -50,7 +50,7 @@ const PostJobs = () => {
                 type="text"
                 placeholder={"Ex: Apple"}
                 {...register("company")}
-                className="block w-full flex-1 border-1 bg-white py-1.5 pl-3 text-primary placeholder:text-grey-400 focus:outline-none sm:text-sm sm:leading-6 rounded-full"
+                className="block w-full flex-1 border-2 border-light bg-white py-1.5 pl-3 text-primary placeholder:text-grey-400 focus:outline-none sm:text-sm sm:leading-6 rounded-full"
               />
             </div>
           </div>
@@ -64,7 +64,7 @@ const PostJobs = () => {
                 type="text"
                 placeholder={"$70,000 - $80,000"}
                 {...register("salary")}
-                className="block w-full flex-1 border-1 bg-white py-1.5 pl-3 text-primary placeholder:text-grey-400 focus:outline-none sm:text-sm sm:leading-6 rounded-full"
+                className="block w-full flex-1 border-2 border-light bg-white py-1.5 pl-3 text-primary placeholder:text-grey-400 focus:outline-none sm:text-sm sm:leading-6 rounded-full"
               />
             </div>
             <div className="lg:w-1/2 w-full ">
@@ -75,7 +75,7 @@ const PostJobs = () => {
                 type="text"
                 placeholder={"Ex: Miami"}
                 {...register("location")}
-                className="block w-full flex-1 border-1 bg-white py-1.5 pl-3 text-primary placeholder:text-grey-400 focus:outline-none sm:text-sm sm:leading-6 rounded-full"
+                className="block w-full flex-1 border-2 border-light bg-white py-1.5 pl-3 text-primary placeholder:text-grey-400 focus:outline-none sm:text-sm sm:leading-6 rounded-full"
               />
             </div>
           </div>
@@ -88,7 +88,7 @@ const PostJobs = () => {
               <input
                 type="date"
                 {...register("posted_date")}
-                className="block w-full flex-1 border-1 bg-white py-1.5 pl-3 text-primary placeholder:text-grey-400 focus:outline-none sm:text-sm sm:leading-6 rounded-full pr-5"
+                className="block w-full flex-1 border-2 border-light bg-white py-1.5 pl-3 text-primary placeholder:text-grey-400 focus:outline-none sm:text-sm sm:leading-6 rounded-full pr-5"
               />
             </div>
             <div className="lg:w-1/2 w-full ">
@@ -98,7 +98,7 @@ const PostJobs = () => {
               <input
                 type="date"
                 {...register("expiry_date")}
-                className="block w-full flex-1 border-1 bg-white py-1.5 pl-3 text-primary placeholder:text-grey-400 focus:outline-none sm:text-sm sm:leading-6 rounded-full pr-5"
+                className="block w-full flex-1 border-2 border-light bg-white py-1.5 pl-3 text-primary placeholder:text-grey-400 focus:outline-none sm:text-sm sm:leading-6 rounded-full pr-5"
               />
             </div>
           </div>
@@ -108,7 +108,7 @@ const PostJobs = () => {
               Job Discription
             </label>
             <textarea
-              className="w-full pl-3 py-1.5 focus:outline-none "
+              className="w-full pl-3 py-1.5 focus:outline-none border-2 border-light rounded-md"
               rows={6}
               placeholder="Jobs Discription"
               {...register("description")}
@@ -116,11 +116,11 @@ const PostJobs = () => {
           </div>
           {/* 5th Row */}
           <div className="w-full">
-            <label className="block mb-2 text-lg font-medium text-primary">
+            <label className="block mb-2 text-lg font-medium text-primary ">
               Job Requirements
             </label>
             <textarea
-              className="w-full pl-3 py-1.5 focus:outline-none "
+              className="w-full pl-3 py-1.5 focus:outline-none border-2 border-light rounded-md"
               rows={3}
               placeholder="Jobs Requirements"
               {...register("requirements")}
@@ -135,7 +135,7 @@ const PostJobs = () => {
               type="email"
               placeholder={"name@gmail.com"}
               {...register("Posted_By")}
-              className="block w-full flex-1 border-1 bg-white py-1.5 pl-3 text-primary placeholder:text-grey-400 focus:outline-none sm:text-sm sm:leading-6 rounded-full"
+              className="block w-full flex-1 border-2 border-light bg-white py-1.5 pl-3 text-primary placeholder:text-grey-400 focus:outline-none sm:text-sm sm:leading-6 rounded-full"
             />
           </div>
           <input

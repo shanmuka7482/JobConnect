@@ -41,13 +41,13 @@ const Home = () => {
   return (
     <div
       className="text-primary flex gap-2 max-w-screen-2xl container mx-auto xl:px-24 px-4 md:pt-20 pt-14 flex-wrap "
-      style={{
-        backgroundImage: `URL(${bg})`,
-        height: "100vh",
-        width: "100vw",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-      }}
+      // style={{
+      //   backgroundImage: `URL(${bg})`,
+      //   height: "100vh",
+      //   width: "100vw",
+      //   backgroundRepeat: "no-repeat",
+      //   backgroundSize: "cover",
+      // }}
     >
       <div className="mt-20 lg:ml-20 lg:w-5/12">
         <h1 className="font-normal text-5xl leading-relaxed">

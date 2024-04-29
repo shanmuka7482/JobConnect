@@ -7,15 +7,26 @@ import EditJobs from "../Pages/EditJobs.jsx";
 import UpdateJob from "../Pages/UpdateJob.jsx";
 import Login from "../Components/Login.jsx";
 import JobDetails from "../Pages/JobDetails.jsx";
+import AppliedJobs from "../Pages/AppliedJobs.jsx";
+import Dashboard from "../Pages/Dashboard.jsx";
+import DashboardHome from "../Pages/DashboardHome.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
       { path: "/", element: <Home /> },
-      { path: "/PostJobs", element: <PostJobs /> },
       { path: "/FindJobs", element: <FindJobs /> },
-      { path: "/EditJobs", element: <EditJobs /> },
+      {
+        path: "/Dashboard",
+        element: <Dashboard />,
+        children: [
+          { path: "/Dashboard", element: <DashboardHome /> },
+          { path: "/Dashboard/PostJobs", element: <PostJobs /> },
+          { path: "/Dashboard/EditJobs", element: <EditJobs /> },
+          { path: "/Dashboard/AppliedJobs", element: <AppliedJobs /> },
+        ],
+      },
       {
         path: "edit-job/:id",
         element: <UpdateJob />,
@@ -27,5 +38,6 @@ const router = createBrowserRouter([
       { path: "/job/:id", element: <JobDetails /> },
     ],
   },
+
 ]);
 export default router;
