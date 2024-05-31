@@ -10,13 +10,21 @@
 ## Installation
 1. Clone the repository:
    ```
-   git clone 
+   git clone https://github.com/shanmuka7482/JobConnect.git
    ```
 2. Navigate to the Client directory:
    ```
-   cd 
+   cd job-portal-client
    ```
-3. Navigate to the Client directory:
+3. run the Client server
    ```
-   cd 
+     npm run dev
+   ```
+4. Navigate to the Server directory:
+   ```
+   cd Job-Portal-Server
+   ```
+5. run the Backend server
+   ```
+     npm start
    ```
